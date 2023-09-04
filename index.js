@@ -5,8 +5,15 @@ const chatbottoggler = document.querySelector(".chatbot-toggler");
 const closeChatBtn = document.getElementById("close-chat-btn"); 
 
 let userMessage;
-const apikey = "sk-prtKzbpBzu6IE5Ti07wvT3BlbkFJTVm8oIsLMqRpW0NsTu"; //USE YOUR OWN API KEY HERE ITS API KEY WITH CHANGES
+const apiBox = document.querySelector("#apiId")
+const apiInput = document.querySelector("#apiId input")
+const apiButton = document.querySelector("#apiId button")
 
+
+apiButton.addEventListener("click",()=>{
+  apikey=apiInput.value;
+  apiBox.style.display="none";
+})
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", className);
@@ -61,9 +68,3 @@ const handleChat = () => {
 chatbottoggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 sendChatBtn.addEventListener("click", handleChat);
 
-
-// closeChatBtn.addEventListener("click", () => {
-//   chatbox.innerHTML = ` <span class="material-symbols-outlined">smart_toy
-//   </span>
-//   <p>Hi there &#128075; <br> Welcome to my chatbot <br>How can I help you today</p>`; 
-// });
